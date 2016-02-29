@@ -4,6 +4,14 @@
 	<meta charset="utf-8" />
 	<title>Materia POPUP Widget</title>
 	<link rel="stylesheet" href="creator.css">
+    <!-- ADDED IN FROM HELLO WIDGET -->
+	<!-- REQUIRED MATERIA JAVASCRIPT -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="materia.creatorcore.js"></script>
+	<!-- YOUR PREREQUISITES -->
+	<!-- MAIN CREATOR SCRIPT -->
+	<script src="creator.js"></script>
+	<!-- END ADDED IN FROM HELLO WIDGET -->
 </head>
 <body ng-controller="popupCtrl">
 
@@ -23,7 +31,7 @@
 
 			<li>
 				<p>
-					Then, click <b ng-if="!state.isEditingExistingWidget">Publish</b><b ng-if="state.isEditingExistingWidget">Update</b> at the top of the page.
+					Then, click <b ng-if="!state.isEditingExistingWidget">Publish</b><b ng-if="state.isEditingExistingWidget"> Update</b> at the top of the page.
 				</p>
 			</li>
 		</ol>
