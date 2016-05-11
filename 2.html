@@ -1,0 +1,50 @@
+<popup-page ng-controller="TaskCtrl">
+
+	<header>Proof Reading Symbols</header>
+	<div class="content">
+			<img id="{{questions[2].id}}" ng-click="checkAns(questions[2].id)" src="assets/images/format.svg">
+		<p class="indent">
+			Developing a semester-length course for a traditional classroom environment is a very different proposition from developing a self-paced, 
+			
+			<img id="{{questions[5].id}}"  alt="The word web based with carrot symbol below and two lines above it" ng-click="checkAns(questions[5].id)" src="assets/images/dash.svg"> 
+			curriculum of interactive learning object for workforce training. While the overarching instructional strategies and models may be the same, the tactics that are used to act on those strategies vary widely. 
+			<img id="{{questions[4].id}}" alt="The word for with three lines under the first letter" ng-click="checkAns(questions[4].id)" src="assets/images/capital.svg"> example, a traditional, 
+		    <img id="{{questions[1].id}}" ng-click="checkAns(questions[1].id)" src="assets/images/transposeWords.svg">course may require extensive preparation that 
+		    <img id="{{questions[8].id}}" ng-click="checkAns(questions[8].id)" src="assets/images/colon.svg">
+		    the development of a course outline, a syllabus, a schedule, lecture notes, assessments, visual presentation aids, and other support materials.<br>
+		    <img id="{{questions[6].id}}" ng-click="checkAns(questions[6].id)" src="assets/images/vectorpaint.svg">
+		</p>
+
+		<p class="indent">
+			However, a traditional classroom course 
+			<img id="proofRead-insertSpace" ng-click="checkAns('proofRead-insertSpace')" src="assets/images/insertSpace.svg"> 
+			require the <span id="{{questions[3].id}}" ng-click="checkAns(questions[3].id)" style=" text-decoration: line-through;">very</span> precise scripting of every word of instruction to be delivered to students. Because the instruction within a self-paced learning object is computer facilitated, with no external human 
+			<img id="{{questions[0].id}}" ng-click="checkAns(questions[0].id)" src="assets/images/insert.svg"> there is an extra burden on the development 
+			<img id="{{questions[7].id}}" ng-click="checkAns(questions[7].id)" src="assets/images/transposeLetters.svg"> to precisely capture the subject matter expertise of the academic authority. In this self-paced, technologically-mediated construct, the computer functions in an 
+			<span id="questions[9].id" ng-click="checkAns(questions[9].id)" <u>in</u> <u>loco</u> <u>professor</u> </span>capacity for the student
+		</p>
+<!-- 		<img id="" src="assets/images/Image 2 at frame 0.jpg">
+ -->
+		<div id="questionBox">
+			<p>{{index+1}}. {{currentQuestion}} 
+<!-- 				<br> {{questions[0].correct}} 
+ -->		</p>
+			
+			<hr ng-show="isCorrect" id="wrongAns-border">
+			<p ng-show="isCorrect" id="wrongAns">	
+				Incorrect. Please try again.
+			</p>
+			
+			<hr ng-show="nextQuestion == true" id="correctAns-border">
+			<p ng-show="nextQuestion == true" id="correctAns">	
+				Correct. 			
+			</p>
+		</div>
+
+	</div>
+	<footer popup-nav
+	 next= "switchQuestion()"
+	 next-disabled-if="nextQuestion == false"
+	 next-disabled-message="Please answer the question correctly in order to continue"
+	></footer>
+</popup-page>
