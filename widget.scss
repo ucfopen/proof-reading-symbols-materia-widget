@@ -53,11 +53,10 @@
 		text-indent: 40px;
 		line-height: 2em;
 		font-size: 12pt;
-		width: 720px;
-		padding: 5px;
+		padding-left: 35px;
 	}
 
-    img:hover, #proofRead-delete:hover
+    img:hover, #proofRead-delete:hover, #proofRead-italics:hover
     {
     	cursor: pointer;
     }
@@ -76,6 +75,13 @@
 	    border: none;
 	    border-radius: 4px;
 	    background: #383636;
+    }
+
+    #proofRead-closeParagraphs
+    {
+    	vertical-align: middle;
+    	margin-left: -129px;
+    	margin-bottom: -49px
     }
 
     #proofRead-dash
@@ -137,5 +143,10 @@
     	vertical-align: middle;
     	margin-right: -9px;
     	margin-left: -4px;
+    }
+
+    #final_score
+    {
+    	text-align: center;
     }
 }
