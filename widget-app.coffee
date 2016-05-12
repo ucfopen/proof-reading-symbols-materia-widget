@@ -20,6 +20,7 @@ app.controller 'widgetCtrl', ['$scope', ($scope) ->
 	$scope.index = 0
 	$scope.ans = 
 		correct: 0
+		wrong: 0
 	$scope.questions = 
 		[
 			# {
@@ -87,7 +88,10 @@ app.controller 'TaskCtrl', ['$scope', 'MateriaService', ($scope, MateriaService)
 	$scope.currentQuestion = $scope.questions[$scope.index].q
 	$scope.nextQuestion = false
 	$scope.isCorrect = false
-	
+	calculateScore = ->
+		if $scope.ans.wrong == 0
+			$scope.ans.correct++
+
 	$scope.switchQuestion = ->
 		if $scope.index < 9
 			$scope.index++
@@ -96,6 +100,7 @@ app.controller 'TaskCtrl', ['$scope', 'MateriaService', ($scope, MateriaService)
 			$scope.isCorrect = false
 			$scope.currentQuestion = $scope.questions[$scope.index].q
 			$scope.state.step++
+			$scope.ans.wrong = 0
 		else 
 			$scope.nextPage()
 		
@@ -104,8 +109,20 @@ app.controller 'TaskCtrl', ['$scope', 'MateriaService', ($scope, MateriaService)
 			$scope.nextQuestion = true	
 			$scope.isCorrect = false
 			$scope.questions[$scope.index].correct = true
-			$scope.ans.correct++
+			# $scope.ans.correct++
+			calculateScore()
+			console.log("score " + $scope.ans.correct)
 		else
 			$scope.isCorrect = true
+			$scope.ans.wrong++
+			console.log("wrong " + $scope.ans.wrong)
 ]
+
+
+
+
+
+
+
+
 
