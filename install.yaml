@@ -1,0 +1,35 @@
+---
+general:
+  name: Proof Reading Symbols
+  group: Materia
+  height: 548
+  width: 750
+  in_catalog: Yes
+  is_editable: Yes
+  is_playable: Yes
+  is_qset_encrypted: Yes
+  is_answer_encrypted: Yes
+  is_storage_enabled: No
+  api_version: 2
+files:
+  creator: creator.html
+  player: player.html
+  flash_version: 0
+score:
+  is_scorable: Yes
+  score_module: ProofReadingSymbols
+meta_data:
+  features:
+    - Customizable
+    - Scorable
+  supported_data:
+    - Multiple Choice
+  about: >
+    This is a simple widget that tests users on their knowledge
+    on proof-reading symbols.
+
+  # The text displayed on the widget catalog page.
+  excerpt: >
+    A Widget that tests users on their knowledge
+    on proof-reading symbols by asking a series of 
+    questions.
