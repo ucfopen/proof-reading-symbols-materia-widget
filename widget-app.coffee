@@ -23,11 +23,7 @@ app.controller 'widgetCtrl', ['$scope', ($scope) ->
 		wrong: 0
 	$scope.questions = 
 		[
-			# {
-			# 	q: "Please enter your name",
-			# 	correct: false 
-			# },
-
+			
 			{
 				q: "Click on the mark for inserting a letter.",
 				id: "proofRead-insertLetter"
@@ -109,13 +105,12 @@ app.controller 'TaskCtrl', ['$scope', 'MateriaService', ($scope, MateriaService)
 			$scope.nextQuestion = true	
 			$scope.isCorrect = false
 			$scope.questions[$scope.index].correct = true
-			# $scope.ans.correct++
 			calculateScore()
-			console.log("score " + $scope.ans.correct)
+			# console.log("score " + $scope.ans.correct)
 		else
 			$scope.isCorrect = true
 			$scope.ans.wrong++
-			console.log("wrong " + $scope.ans.wrong)
+			# console.log("wrong " + $scope.ans.wrong)
 ]
 
 
