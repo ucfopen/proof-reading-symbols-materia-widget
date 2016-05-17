@@ -1,6 +1,20 @@
-@import 'main.scss';
-.content 
+
+body 
 {
+
+    margin: 0px;
+    padding: 0px;
+    background: #F7F8ED;
+    
+
+}
+
+.content
+{
+    background-color: #fff;
+    width: 84%;
+    margin: 140px auto 0px auto;
+    padding: 60px 15px;
 
 	a
 	{
@@ -10,9 +24,14 @@
 
 	#questionBox
 	{
-		/*position: relative;
-		margin:-230px auto 0px auto;*/
-		width: 96%;
+		
+        margin: 0 auto;
+		width: 86%;
+        position: fixed;
+        font-size: 14pt;
+        top: 30px;
+        right: 0px;
+        left: 0px;
 		padding: 20px;
 		background-color: #E8FBA9;
 		border-radius: 20px;
@@ -53,7 +72,7 @@
 		text-indent: 40px;
 		line-height: 2em;
 		font-size: 12pt;
-		padding-left: 35px;
+        padding: 0px 40px;
 	}
 
     img:hover, #proofRead-delete:hover, #proofRead-italics:hover
@@ -65,7 +84,6 @@
     {
     	float: right;
 	    padding: 10px 26px;
-	    /* margin-right: -27px; */
 	    cursor: pointer;
 	    display: inline-block;
 	    text-decoration: none;
@@ -133,7 +151,7 @@
 
     #proofRead-insertSpace
     {
-    	vertical-align: bottom;
+    	vertical-align: top;
 	    margin-right: -10px;
 	    margin-left: -4px;
     }
@@ -145,8 +163,27 @@
     	margin-left: -4px;
     }
 
-    #final_score
-    {
-    	text-align: center;
-    }
+    
+}
+
+.score_content
+{
+    background-color: #fff;
+    width: 84%;
+    margin: 120px auto 0px auto;
+    padding: 60px 15px;
+    height: 400px;
+
+#final_score
+{
+    text-align: center;
+    font-size: 16pt;
+    line-height: 2em;
+}
+
+#final_score span 
+{
+    color: #3399CC;
+}
+
 }
