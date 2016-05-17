@@ -1,276 +1,81 @@
 <!DOCTYPE html>
-<html ng-app="widgetPlayer">
-<head>
-	<meta charset="utf-8" />
-	<title>Materia POPUP Widget</title>
-	<link rel="stylesheet" href="widget.css">
+<!-- INJECTS IE CLASSES ONTO HTML TAG -->
+<!--[if IE 8 ]>    <html class="IE8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="IE9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+	<head>
+		<title>Be Finder</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-</head>
-<body ng-controller="popupCtrl">
+		<!-- STYLESHEETS -->
+		<link rel="stylesheet" type="text/css" href="widget.css">
+		<link href='https://fonts.googleapis.com/css?family=Alfa+Slab+One' rel='stylesheet' type='text/css'>
 
-	<header ng-if="state.phase != 'loading'" class="main-header" ng-cloak>
-		<div class="progress">
-			<span>{{state.step}} / {{widget.numSteps}}</span>
-		</div>
-		<a role="button" class="pause" ng-click="pause()" ng-class="{disabled: state.phase == 'inTask'}">
-			<svg width="34" height="34" viewPort="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg">
-				<rect x="11" y="10" width="4" height="14"></rect>
-				<rect x="19" y="10" width="4" height="14"></rect>
-				<line x1="8" y1="8" x2="26" y2="26"></line>
-				<line x1="8" y1="26" x2="26" y2="8"></line>
-			</svg>
-		</a>
-		<div class="total-progress"><div class="current-progress" style="width:{{state.step / widget.numSteps * 100}}%"></div>
-	</header>
+		<!-- REQUIRED MATERIA JAVASCRIPT -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="materia.enginecore.js"></script>
+		<script src="materia.score.js"></script>
 
-	<section class="loading" ng-if="state.phase == 'loading'">
-		<svg width="30" height="30" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" version="1.1">
-			<path d="M 150,0 a 150,150 0 0,1 106.066,256.066 l -35.355,-35.355 a -100,-100 0 0,0 -70.711,-170.711 z" fill="#3d7fe6">
-				<animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 150 150" to="360 150 150" begin="0s" dur="1s" fill="freeze" repeatCount="indefinite"></animateTransform>
-			</path>
-		</svg>
-	</section>
+		<!-- OPTIONAL MATERIA JAVASCRIPT -->
+		<!-- <script src="materia.storage.manager.js"></script> -->
+		<!-- <script src="materia.storage.table.js"></script> -->
 
-	<section class="page" ng-if="state.phase != 'loading'" ng-controller="widgetCtrl" ng-include="state.page + '.html'" ng-class="['page' + state.page]"></section>
+		<!-- YOUR PREREQUISITES -->
+		<script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js'></script>
+		<script src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-sanitize.min.js'></script>
 
-	<div class="dialog-container paused" ng-if="state.phase == 'paused'" ng-cloak>
-		<div class="dialog" role="alertdialog">
-			<p>The experiment is now paused. Click Resume to continue.</p>
-			<a role="button" class="button" ng-click="unpause()">Resume</a>
-		</div>
-	</div>
+		<!-- MAIN PLAYER SCRIPT -->
+		<script src="player.js"></script>
 
-	<div class="dialog-container" ng-if="state.error" ng-cloak>
-		<div class="dialog" tabindex="0">
-			<p role="alertdialog" tabindex="0">{{state.errorMessage}}</p>
-			<a role="button" class="button" ng-click="state.error = false" tabindex="0">OK</a>
-		</div>
-	</div>
-
-	<!-- START TEMPLATES -->
-	<script type="text/ng-template" id="introduction.html">
-		<header>{{widget.title}} Introduction</header>
-		<div class="content">
-			<h1>Welcome to UCF&#39;s Psychology Online Lab Experience</h1>
-			<ul>
-				<li>Find a quiet place with minimal distractions and outside noise</li>
-				<li>Pause the experiment by clicking on the pause button in the upper right-hand corner</li>
-				<li>The approximate time required for this experiment is <span class="time-estimate">{{widget.timeEstimateMinutes}} minutes</span></li>
-			</ul>
-			<img style="margin-top:-1em;" src="assets/images/UCFLogo.png" alt="UCF Psychology Logo">
-			<p style="float: right">Click &#34;Continue&#34; to begin</p>
-		</div>
-		<footer popup-nav></footer>
-	</script>
-
-	<script type="text/ng-template" id="experiment-complete.html">
-
-		<popup-page ng-if="widget.isThereAFeedbackSurvey" ng-include="'feedback-survey-template.html'"></popup-page>
-
-		<popup-page ng-if="!widget.isThereAFeedbackSurvey" ng-include="'feedback-survey-declined.html'"></popup-page>
-
-	</script>
-
-	<script type="text/ng-template" id="nav-basic.html">
-		<nav>
-			<ul>
-				<li class="back-button" ng-if="state.page > 1"><a class="button" role="button" ng-click="prevPage()">Back</a></li>
-				<li class="next-button" ng-if="state.page < widget.numPages"><a class="button" role="button" ng-click="nextPage()">Continue</a></li>
-			</ul>
-		</nav>
-	</script>
-
-	<script type="text/ng-template" id="nav-before-task.html">
-		<nav>
-			<ul>
-				<li class="back-button" ng-if="state.page > 1"><a class="button" role="button" ng-click="prevPage()">Back</a></li>
-				<li class="important"><a class="button" role="button" ng-click="nextPage()">Begin Task</a></li>
-			</ul>
-		</nav>
-	</script>
-
-	<script type="text/ng-template" id="nav-after-task.html">
-		<nav>
-			<ul>
-				<li class="next-button" ng-if="state.page < widget.numPages"><a class="button" role="button" ng-click="nextPage()">Continue</a></li>
-			</ul>
-		</nav>
-	</script>
-
-	<script type="text/ng-template" id="popup-nav.html">
-		<nav>
-			<ul>
-				<li class="back-button" ng-if="!isPrevHidden()"><a class="button" role="button" ng-click="onPrev()" ng-class="{disabled:prevDisabledIf()}" aria-haspopup="{{prevDisabledMessage && prevDisabledIf() ? 'true' : 'false'}}">Back</a></li>
-				<li ng-class="{important:beginTask, 'next-button':!beginTask}" ng-if="!isNextHidden()"><a class="button" role="button" ng-click="onNext()" ng-class="{disabled:nextDisabledIf()}" aria-haspopup="{{nextDisabledMessage && nextDisabledIf() ? 'true' : 'false'}}">{{nextButtonLabel}}</a></li>
-			</ul>
-		</nav>
-	</script>
-
-	<!-- Some widgets have a feedback survey. These are the templates for them. To add the survey to your widget, simply change the isThereAFeedbackSurvey.answer variable in your widget's controller to true. Otherwise, leave it false. -->
-
-	<script type="text/ng-template" id="feedback-survey-template.html">
-
-
-		<div class="full" ng-controller="feedbackSurveyCtrl">
-
-			<div class="full" ng-include="'begin-feedback-survey.html'" ng-show="feedbackState.page == 1"></div>
-			<div ng-include="'feedback-survey.html'" ng-show="feedbackState.page == 2 || feedbackState.page == 3"></div>
-			<div class="full" ng-include="'end-feedback-survey.html'" ng-show="feedbackState.page == 4"></div>
-			<!--// if they decline the survey -->
-			<div class="full" ng-include="'feedback-survey-declined.html'" ng-show="surveyDeclined.response"></div>
-			<!--// nav changes based on the page of the feedback -->
-			<div class="supplementary">
-					<nav>
-						<ul ng-show="feedbackState.page == 2">
-							<li ng-class="{important:beginTask, 'next-button':!beginTask}"><a class="button" role="button" ng-click="nextFeedbackPage()">Continue</a>
-							</li>
-						</ul>
-						<ul ng-show="feedbackState.page == 3">
-							<li class="back-button">
-								<a class="button" role="button" ng-click="prevFeedbackPage()">
-								Back</a>
-							</li>
-							<li ng-class="{important:beginTask, 'next-button':!beginTask}"
-								ng-if="!isNextHidden()">
-								<a class="button" role="button"
-								ng-click="advancer()"
-								ng-class="{disabled: feedbackState.page == 3 && !feedbackState.finished}"
-								next-disabled-message="Please fill out the whole form.">Continue</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-	</script>
-
-	<script type="text/ng-template" id="feedback-survey-declined.html">
-		<div class="full">
-			<header>Experiment Complete</header>
-			<div class="content" style="text-align: center;">
-				<p>
-					You have now completed the experiment. Your data has been successfully captured and stored in a secure database.
-				</p>
-				<p>
-					All of the information you provided will be used for research purposes only.
-				</p>
-				<p>
-					You may now navigate away from this page, or close this window.
-				</p>
-			</div>
-			<footer popup-nav></footer>
-		</div>
-	</script>
-
-
-	<script type="text/ng-template" id="begin-feedback-survey.html">
-		<header>Feedback Survey</header>
-		<div class="content" style="padding-top: 10%; text-align: center;">
-			<p>
-				You have now completed the experimental portion of this module.
-			</p>
-			<p>
-				You may now participate in an optional survey. Please click the &quot;Continue&quot; button below to be directed to a feedback survey that will help direct current and future module content. To opt out, click the &quot;No Thanks&quot; button. The following survey will be anonymous and your answers will not be associated with your scores or performance on the module.
+		<!-- BE FINDER SCRIPT -->
+	</head>
+	<body ng-app="proofread" ng-controller="proofReadCtrl" >
+		<div class="content" ng-hide="finished">
+			<img id="{{questions[2].id}}" ng-click="checkAns(questions[2].id)" src="assets/images/format.svg">
+			<p class="indent">
+				Developing a semester-length course for a traditional classroom environment is a very different proposition from developing a self-paced, 
+				
+				<img id="{{questions[5].id}}"  alt="The word web based with carrot symbol below and two lines above it" ng-click="checkAns(questions[5].id)" src="assets/images/dash.svg"> 
+				curriculum of interactive learning object for workforce training. While the overarching instructional strategies and models may be the same, the tactics that are used to act on those strategies vary widely. 
+				<img id="{{questions[4].id}}" alt="The word for with three lines under the first letter" ng-click="checkAns(questions[4].id)" src="assets/images/capital.svg"> example, a traditional, 
+			    <img id="{{questions[1].id}}" ng-click="checkAns(questions[1].id)" src="assets/images/transposeWords.svg">course may require extensive preparation that 
+			    <img id="{{questions[8].id}}" ng-click="checkAns(questions[8].id)" src="assets/images/colon.svg">
+			    the development of a course outline, a syllabus, a schedule, lecture notes, assessments, visual presentation aids, and other support materials.
+			    <img id="{{questions[6].id}}" ng-click="checkAns(questions[6].id)" src="assets/images/closeParagraph.svg">
 			</p>
 
-			<ul style="list-style-type: none; display: inline-flex">
-				<li ng-class="{important:beginTask, 'next-button':!beginTask}"><a class="button" style="margin-right: 1em;" role="button" value="Close this window" ng-click="declineFeedbackSurvey()" ng-class="{disabled:nextDisabledIf()}">No Thanks</a></li>
-				<li style="margin-right: 1em" ng-class="{important:beginTask, 'next-button':!beginTask}"><a class="button" role="button" ng-click="nextFeedbackPage()" ng-class="{disabled:nextDisabledIf()}">Continue</a></li>
-			</ul>
-		</div>
-		<footer popup-nav prev-hide-if="true"></footer>
-	</script>
+			<p class="indent">
+				However, a traditional classroom course 
+				<img id="proofRead-insertSpace" ng-click="checkAns('proofRead-insertSpace')" src="assets/images/insertSpace.svg"> 
+				require the <span id="{{questions[3].id}}" ng-click="checkAns(questions[3].id)" style=" text-decoration: line-through;">very</span> precise scripting of every word of instruction to be delivered to students. Because the instruction within a self-paced learning object is computer facilitated, with no external human 
+				<img id="{{questions[0].id}}" ng-click="checkAns(questions[0].id)" src="assets/images/insert.svg"> there is an extra burden on the development 
+				<img id="{{questions[7].id}}" ng-click="checkAns(questions[7].id)" src="assets/images/transposeLetters.svg"> to precisely capture the subject matter expertise of the academic authority. In this self-paced, technologically-mediated construct, the computer functions in an 
+				<span id="{{questions[9].id}}" ng-click="checkAns(questions[9].id)"> <u>in</u> <u>loco</u> <u>professor</u> </span>capacity for the student.
+			</p>
 
-	<script type="text/ng-template" id="feedback-survey.html">
-		<div ng-controller="feedbackSurveyCtrl">
-			<header>Survey</header>
-			<div class="content" id="feedback">
-				<form name="form" invalidate>
-					<table class="feedback_table" ng-show="feedbackState.page == 2">
-						<thead>
-							<th colspan="1"></th>
-							<th colspan="1" ng-repeat="question in surveys.arrNumScales">
-								{{surveys.arrScales[$index]}}<br />{{surveys.arrNumScales[$index]}}
-							</th>
-						</thead>
-						<tbody>
-							<tr ng-repeat="question in surveys.arrQuestions" ng-if="$index < 5" ng-init="thisQuestion = $index + 1">
-								<th rowspan="1">{{surveys.arrQuestions[$index]}}</th>
-								<td ng-repeat="question in surveys.arrNumScales" >
-									<label>
-										<input required type="radio" name="q{{$parent.$index}}"
-										value="{{$index + 1}}" ng-model="surveys.arrAnswers[thisQuestion]">
-										</input>
-									</label>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<table class="feedback_table" ng-show="feedbackState.page == 3">
-						<thead>
-							<th colspan="1"></th>
-							<th colspan="1" ng-repeat="question in surveys.arrNumScales">
-								{{surveys.arrScales[$index]}}<br />{{surveys.arrNumScales[$index]}}
-							</th>
-						</thead>
-						<tbody>
-							<tr ng-repeat="question in surveys.arrQuestions" ng-if="$index > 4" ng-init="thisQuestion = $index + 1">
-								<th rowspan="1">{{surveys.arrQuestions[$index]}}</th>
-								<td ng-repeat="question in surveys.arrNumScales" >
-									<label>
-										<input required type="radio" name="q{{$parent.$index}}"
-										value="{{$index + 1}}" ng-model="surveys.arrAnswers[thisQuestion]">
-										</input>
-									</label>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</form>
+			<div id="questionBox">
+				<p>{{index+1}}. {{currentQuestion}} </p>
+				
+				<hr ng-show="isCorrect" id="wrongAns-border">
+				<p ng-show="isCorrect" id="wrongAns">Incorrect. Please try again.</p>
+				
+				<hr ng-show="nextQuestion" id="correctAns-border">
+				<p ng-show="nextQuestion" id="correctAns">	Correct.</p>
+
+				<button popup-nav
+				 ng-click= "switchQuestion()"
+				 ng-show="nextQuestion == true"
+				 value="Next"
+				>NEXT</button>
 			</div>
 		</div>
-	</script>
 
-	<script type="text/ng-template" id="end-feedback-survey.html">
-		<header>Survey Complete</header>
-		<div class="content" style="padding-top: 10%; text-align: center; font-size: smaller">
-			<p>
-				Thank you for participating in this survey.
-			</p>
-			<p>
-				The feedback you and your fellow students provide is very important and is used to help us find out how we are doing with these online experiments and also to refine future studies.
-			</p>
-			<p>
-				All the information you have provided will be used for research purposes only.
-			</p>
+		<div class="score_content" ng-show="finished">
 
-			<p>
-				You may now navigate away from this page, or close your browser.
+			<p id="final_score">
+				Your final score is <br> <span>{{ans.correct}} </span><br> out of 10.
 			</p>
+		
 		</div>
-	</script>
-
-	<!-- END TEMPLATES -->
-
-
-	<!-- REQUIRED MATERIA JS -->
-	<!--<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
-	<script type="text/javascript" src="materia.enginecore.js"></script>
-	<!-- <script type="text/javascript" src="materia.score.js"></script> -->
-	<script type="text/javascript" src="materia.storage.manager.js"></script>
-	<script type="text/javascript" src="materia.storage.table.js"></script>
-
-	<!-- YOUR PREREQUISITES -->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
-	<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>-->
-	<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-resource.js"></script> -->
-	<!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-sanitize.js"></script> -->
-
-	<!-- google graphs -->
-	<!-- <script src="//www.google.com/jsapi"></script> -->
-
-	<!-- MAIN APP -->
-	<script type='text/javascript' src="player-app.js"></script>
-	<script type='text/javascript' src="widget-app.js"></script>
-
-</body>
-</html>
+		
+	</body>
