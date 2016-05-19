@@ -95,6 +95,7 @@ proofread.controller "proofReadCtrl", ($scope) ->
 			$scope.showBtn = false
 			$scope.currentQuestion = $scope.questions[$scope.index].q
 			$scope.ans.wrong = 0
+			$scope.ans.wrongStmnt = "Incorrect. Please try again."
 			clearStyle()
 			
 		else 
