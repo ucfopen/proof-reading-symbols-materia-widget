@@ -9,8 +9,20 @@ proofread.controller "proofReadCtrl", ($scope) ->
 	$scope.showBtn = false
 	$scope.ans = 
 		correct: 0
-		wrong: 1
+		wrong: 0
 		wrongStmnt: "Incorrect. Please try again."
+		correctStyle: {
+					"-moz-box-shadow": "0 0 10px #383636", 
+					"-webkit-box-shadow": "0 0 10px #383636" ,
+					"box-shadow": "0 0 10px #383636", 
+					"border-bottom":"3px solid green"
+				}
+		wrongStyle: {
+					"-moz-box-shadow": "0 0 10px #383636", 
+					"-webkit-box-shadow": "0 0 10px #383636" ,
+					"box-shadow": "0 0 10px #383636", 
+					"border-bottom":"3px solid red"
+				}
 	$scope.questions = 
 		[
 			
@@ -67,12 +79,12 @@ proofread.controller "proofReadCtrl", ($scope) ->
 		]
 	$scope.currentQuestion = $scope.questions[$scope.index].q
 	calculateScore = ->
-		if $scope.ans.wrong == 0
+		if $scope.ans.wrong <= 1
 			$scope.ans.correct++
 	
 	clearStyle = ->
-		for test, indx in $scope.questions
-			test.style = {}
+		for question, indx in $scope.questions
+			question.style = {}
 
 	$scope.switchQuestion = ->
 		if $scope.index < $scope.questions.length - 1
@@ -89,43 +101,23 @@ proofread.controller "proofReadCtrl", ($scope) ->
 			$scope.finished = true
 	
 	$scope.checkAns = (id, indx) ->
-		if $scope.ans.wrong != 2
+		if $scope.ans.wrong < 2
 			if id == $scope.questions[$scope.index].id
-				$scope.questions[indx].style = {
-					"-moz-box-shadow": "0 0 10px #383636", 
-					"-webkit-box-shadow": "0 0 10px #383636" ,
-					"box-shadow": "0 0 10px #383636", 
-					"border-bottom":"3px solid green"
-				}
-
+				$scope.questions[indx].style = $scope.ans.correctStyle
 				$scope.nextQuestion = true	
 				$scope.isCorrect = false
 				$scope.showBtn = true
+				calculateScore()
 			else
-				$scope.questions[indx].style = {
-					"-moz-box-shadow": "0 0 10px #383636", 
-					"-webkit-box-shadow": "0 0 10px #383636" ,
-					"box-shadow": "0 0 10px #383636", 
-					"border-bottom":"3px solid red"
-				}
+				$scope.questions[indx].style = $scope.ans.wrongStyle
 				$scope.isCorrect = true
-				$scope.ans.wrong++
+				$scope.ans.wrong+=1
+				console.log($scope.ans.wrong)
 		else
-			$scope.questions[indx].style = {
-				"-moz-box-shadow": "0 0 10px #383636", 
-				"-webkit-box-shadow": "0 0 10px #383636" ,
-				"box-shadow": "0 0 10px #383636", 
-				"border-bottom":"3px solid red"
-			}
-			$scope.questions[$scope.index].style = {
-				"-moz-box-shadow": "0 0 10px #383636", 
-				"-webkit-box-shadow": "0 0 10px #383636" ,
-				"box-shadow": "0 0 10px #383636", 
-				"border-bottom":"3px solid green"
-			}
+			$scope.questions[$scope.index].style = $scope.ans.correctStyle	
 			$scope.ans.wrongStmnt = "Incorrect. The correct answer is highlighted."
-			$scope.showBtn = true	
+			$scope.showBtn = true
+		# console.log("score " + $scope.ans.correct)
 
-		calculateScore()
 
 				
