@@ -6,22 +6,22 @@ proofread.controller "proofReadCtrl", ($scope) ->
 	$scope.isCorrect = false
 	$scope.finished = false
 	$scope.index = 0
+	$scope.showBtn = false
 	$scope.ans = 
 		correct: 0
-		wrong: 0
+		wrong: 1
+		wrongStmnt: "Incorrect. Please try again."
 	$scope.questions = 
 		[
 			
 			{
-				q: "Click on the mark for inserting a letter.",
-				id: "proofRead-insertLetter"
-				
+				q: "Click on the mark for inserting a letter."
+				id: "proofRead-insertLetter"	
 			},
 
 			{
 				q: "Click on the mark for transposing a group of words."
 				id: "proofRead-transposeWords"
-				 
 			},
 
 			{
@@ -36,11 +36,11 @@ proofread.controller "proofReadCtrl", ($scope) ->
 
 			{
 				q: "Click on the mark for capitalizing a letter."
-				id: "proofRead-capitalize"			 
+				id: "proofRead-capitalize"		 
 			},
 			{
 				q: "Click on the mark for adding a hyphen."
-				id: "proofRead-dash"			 
+				id: "proofRead-dash"		 
 			},
 
 			{
@@ -69,7 +69,10 @@ proofread.controller "proofReadCtrl", ($scope) ->
 	calculateScore = ->
 		if $scope.ans.wrong == 0
 			$scope.ans.correct++
-		return $scope.ans.correct
+	
+	clearStyle = ->
+		for test, indx in $scope.questions
+			test.style = {}
 
 	$scope.switchQuestion = ->
 		if $scope.index < $scope.questions.length - 1
@@ -77,18 +80,52 @@ proofread.controller "proofReadCtrl", ($scope) ->
 			$scope.counter++
 			$scope.nextQuestion = false
 			$scope.isCorrect = false
+			$scope.showBtn = false
 			$scope.currentQuestion = $scope.questions[$scope.index].q
 			$scope.ans.wrong = 0
+			clearStyle()
 			
 		else 
 			$scope.finished = true
-			
-	$scope.checkAns = (id) ->
-		if id == $scope.questions[$scope.index].id
-			$scope.nextQuestion = true	
-			$scope.isCorrect = false
-			$scope.questions[$scope.index].correct = true
-			calculateScore()
+	
+	$scope.checkAns = (id, indx) ->
+		if $scope.ans.wrong != 2
+			if id == $scope.questions[$scope.index].id
+				$scope.questions[indx].style = {
+					"-moz-box-shadow": "0 0 10px #383636", 
+					"-webkit-box-shadow": "0 0 10px #383636" ,
+					"box-shadow": "0 0 10px #383636", 
+					"border-bottom":"3px solid green"
+				}
+
+				$scope.nextQuestion = true	
+				$scope.isCorrect = false
+				$scope.showBtn = true
+			else
+				$scope.questions[indx].style = {
+					"-moz-box-shadow": "0 0 10px #383636", 
+					"-webkit-box-shadow": "0 0 10px #383636" ,
+					"box-shadow": "0 0 10px #383636", 
+					"border-bottom":"3px solid red"
+				}
+				$scope.isCorrect = true
+				$scope.ans.wrong++
 		else
-			$scope.isCorrect = true
-			$scope.ans.wrong++
+			$scope.questions[indx].style = {
+				"-moz-box-shadow": "0 0 10px #383636", 
+				"-webkit-box-shadow": "0 0 10px #383636" ,
+				"box-shadow": "0 0 10px #383636", 
+				"border-bottom":"3px solid red"
+			}
+			$scope.questions[$scope.index].style = {
+				"-moz-box-shadow": "0 0 10px #383636", 
+				"-webkit-box-shadow": "0 0 10px #383636" ,
+				"box-shadow": "0 0 10px #383636", 
+				"border-bottom":"3px solid green"
+			}
+			$scope.ans.wrongStmnt = "Incorrect. The correct answer is highlighted."
+			$scope.showBtn = true	
+
+		calculateScore()
+
+				
