@@ -75,8 +75,11 @@ proofread.controller "proofReadCtrl", ($scope) ->
 				q: "Click on the mark for adding italics font formatting."
 				id: "proofRead-italics"		
 			}
-
+			{
+				id: "proofRead-insertSpace"
+			}
 		]
+
 	$scope.currentQuestion = $scope.questions[$scope.index].q
 	calculateScore = ->
 		if $scope.ans.wrong <= 1
@@ -87,7 +90,7 @@ proofread.controller "proofReadCtrl", ($scope) ->
 			question.style = {}
 
 	$scope.switchQuestion = ->
-		if $scope.index < $scope.questions.length - 1
+		if $scope.index < $scope.questions.length - 2
 			$scope.index++
 			$scope.counter++
 			$scope.nextQuestion = false
@@ -96,29 +99,24 @@ proofread.controller "proofReadCtrl", ($scope) ->
 			$scope.currentQuestion = $scope.questions[$scope.index].q
 			$scope.ans.wrong = 0
 			$scope.ans.wrongStmnt = "Incorrect. Please try again."
-			clearStyle()
-			
+			clearStyle()		
 		else 
 			$scope.finished = true
 	
 	$scope.checkAns = (id, indx) ->
-		if $scope.ans.wrong < 2
-			if id == $scope.questions[$scope.index].id
-				$scope.questions[indx].style = $scope.ans.correctStyle
-				$scope.nextQuestion = true	
-				$scope.isCorrect = false
-				$scope.showBtn = true
-				calculateScore()
-			else
-				$scope.questions[indx].style = $scope.ans.wrongStyle
-				$scope.isCorrect = true
-				$scope.ans.wrong+=1
-				console.log($scope.ans.wrong)
-		else
-			$scope.questions[$scope.index].style = $scope.ans.correctStyle	
-			$scope.ans.wrongStmnt = "Incorrect. The correct answer is highlighted."
+		if id == $scope.questions[$scope.index].id and $scope.ans.wrong <= 2
+			$scope.questions[indx].style = $scope.ans.correctStyle
+			$scope.nextQuestion = true	
+			$scope.isCorrect = false
 			$scope.showBtn = true
-		# console.log("score " + $scope.ans.correct)
-
+			calculateScore()
+		else
+			$scope.questions[indx].style = $scope.ans.wrongStyle
+			$scope.isCorrect = true
+			$scope.ans.wrong+=1
+			if $scope.ans.wrong == 2
+				$scope.questions[$scope.index].style = $scope.ans.correctStyle
+				$scope.ans.wrongStmnt = "Incorrect. The correct answer is highlighted."
+				$scope.showBtn = true
 
 				
