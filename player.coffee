@@ -15,14 +15,9 @@ proofread.controller "proofReadCtrl", ($scope) ->
 					"-moz-box-shadow": "0 0 10px #383636", 
 					"-webkit-box-shadow": "0 0 10px #383636" ,
 					"box-shadow": "0 0 10px #383636", 
-					"border-bottom":"3px solid green"
+					"border-bottom":"3px solid #00B033"
 				}
-		wrongStyle: {
-					"-moz-box-shadow": "0 0 10px #383636", 
-					"-webkit-box-shadow": "0 0 10px #383636" ,
-					"box-shadow": "0 0 10px #383636", 
-					"border-bottom":"3px solid red"
-				}
+		
 	$scope.questions = 
 		[
 			
@@ -104,14 +99,13 @@ proofread.controller "proofReadCtrl", ($scope) ->
 			$scope.finished = true
 	
 	$scope.checkAns = (id, indx) ->
-		if id == $scope.questions[$scope.index].id and $scope.ans.wrong <= 2
+		if id == $scope.questions[$scope.index].id and $scope.ans.wrong < 2
 			$scope.questions[indx].style = $scope.ans.correctStyle
 			$scope.nextQuestion = true	
 			$scope.isCorrect = false
 			$scope.showBtn = true
 			calculateScore()
 		else
-			$scope.questions[indx].style = $scope.ans.wrongStyle
 			$scope.isCorrect = true
 			$scope.ans.wrong+=1
 			if $scope.ans.wrong == 2
