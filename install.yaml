@@ -2,7 +2,7 @@
 general:
   name: Proof Reading Symbols
   group: Materia
-  height: 750
+  height: 780
   width: 1050
   in_catalog: Yes
   is_editable: Yes
