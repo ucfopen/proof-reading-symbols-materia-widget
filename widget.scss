@@ -14,7 +14,7 @@ body
     background-color: #fff;
     width: 84%;
     margin: 140px auto 0px auto;
-    padding: 60px 15px;
+    padding: 50px 15px;
 
     a
     {
@@ -28,6 +28,7 @@ body
     {
         float: right;
         padding: 10px 26px;
+        margin-top: 10px;
         cursor: pointer;
         display: inline-block;
         text-decoration: none;
@@ -87,8 +88,9 @@ body
     #correctAns 
     {
         color: #00B005;
-        width: 90%;
+        width: 30%;
         text-indent: 20px;
+        display: inline-block;
 
     }
 
@@ -127,7 +129,8 @@ body
     #proofRead-bold
     {
         vertical-align: middle;
-        margin-bottom: -20px;
+        margin-bottom: -10px;
+        margin-top: 18px;
         height: 45px;
     }
 
