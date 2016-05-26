@@ -1,12 +1,8 @@
-
-body 
+body
 {
-
     margin: 0px;
     padding: 0px;
     background: #F7F8ED;
-    
-
 }
 
 .content
@@ -15,16 +11,13 @@ body
     width: 84%;
     margin: 140px auto 0px auto;
     padding: 50px 15px;
-
     a
     {
         text-decoration: none;
         color: black;
     }
 
-
-
-    button 
+    button
     {
         float: right;
         padding: 10px 26px;
@@ -60,7 +53,7 @@ body
         border-radius: 20px;
     }
 
-    #wrongAns-border 
+    #wrongAns-border
     {
         border: transparent;
         border-top: 1px solid #B10D0D;
@@ -69,16 +62,15 @@ body
         margin-left: 0px;
     }
 
-    #wrongAns 
+    #wrongAns
     {
         color: #B10D0D;
         width: 50%;
         text-indent: 20px;
         display: inline-block;
-
     }
 
-    #correctAns-border 
+    #correctAns-border
     {
         border-top: 1px solid #C1C1C1;
         width: 65%;
@@ -86,13 +78,12 @@ body
         margin-left: 0px;
     }
 
-    #correctAns 
+    #correctAns
     {
         color: #00B005;
         width: 30%;
         text-indent: 20px;
         display: inline-block;
-
     }
 
     .indent
@@ -103,13 +94,18 @@ body
         padding: 0px 40px;
     }
 
-    
+    img, #proofRead-delete, #proofRead-italics
+    {
+        cursor: pointer;
+        box-shadow: 1px 1px 1px 1px #D2CFCF;
+    }
+
     img:hover, #proofRead-delete:hover, #proofRead-italics:hover
     {
         cursor: pointer;
-        -moz-box-shadow: 0 0 10px #ccc; 
-        -webkit-box-shadow: 0 0 10px #ccc; 
-        box-shadow: 0 0 10px #383636; 
+        -moz-box-shadow: 0 0 10px #ccc;
+        -webkit-box-shadow: 0 0 10px #ccc;
+        box-shadow: 0 0 10px #383636;
     }
 
     #proofRead-closeParagraphs
@@ -162,7 +158,6 @@ body
     {
         vertical-align: middle;
         height: 32px;
-        /* margin-left: 0px; */
         margin-right: -4px;
         margin-top:-2px
     }
@@ -172,7 +167,6 @@ body
         vertical-align: top;
         margin-right: -4px;
         margin-left: -4px;
-        
     }
 
     #proofRead-transposeLetters
@@ -181,8 +175,6 @@ body
         margin-right: -5px;
         margin-left: -4px;
     }
-
-    
 }
 
 .score_content
@@ -200,9 +192,92 @@ body
     line-height: 2em;
 }
 
-#final_score span 
+#final_score span
 {
     color: #3399CC;
 }
 
+}
+
+
+.tooltip
+{
+    position: relative;
+}
+
+.tooltip a
+{
+    font-size: 16pt;
+    margin: 0px;
+    font-weight: bold;
+    color: #9C9C9C;
+    position: absolute;
+    right: 52px;
+    top: 14px;
+
+}
+
+.tooltip a:hover
+{
+    color: black;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext
+{
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    right: 0%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext
+{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
