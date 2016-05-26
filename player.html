@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<!-- INJECTS IE CLASSES ONTO HTML TAG -->
-<!--[if IE 8 ]>    <html class="IE8"> <![endif]-->
-<!--[if IE 9 ]>    <html class="IE9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
+<html>
 	<head>
-		<title>Be Finder</title>
+		<title>Proof Reading Symbols</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<!-- STYLESHEETS -->
@@ -29,40 +26,44 @@
 
 		<!-- BE FINDER SCRIPT -->
 	</head>
-	<body ng-app="proofread" ng-controller="proofReadCtrl" >
-
+	<body ng-app="proofread" ng-click="" ng-controller="proofReadCtrl">
 		<div class="content" ng-hide="finished">
 			<img id="{{questions[2].id}}" alt=" The words Apples and oranges with squiggly lines underneath, and a line going through a letter and over in each word"  ng-style="questions[2].style" ng-click="checkAns(questions[2].id,2)" src="assets/images/format.svg">
 			<p class="indent">
-				Developing a semester-length course for a traditional classroom environment is a very different proposition from developing a self-paced, 
-				
-				<img id="{{questions[5].id}}"  alt="The word web based with carrot symbol below and two lines above it" ng-style="questions[5].style" ng-click="checkAns(questions[5].id,5)" src="assets/images/dash.svg"> 
-				curriculum of interactive learning object for workforce training. While the overarching instructional strategies and models may be the same, the tactics that are used to act on those strategies vary widely. 
-				<img id="{{questions[4].id}}" alt="The word for with three lines under the first letter" ng-style="questions[4].style" ng-click="checkAns(questions[4].id,4)" src="assets/images/capital.svg"> example, a traditional, 
-			    <img id="{{questions[1].id}}" alt="a line going over the word academic and under classroom-based "ng-style="questions[1].style" ng-click="checkAns(questions[1].id,1)" src="assets/images/transposeWords.svg">course may require extensive preparation that 
-			    <img id="{{questions[8].id}}" alt="The word includes with top/bottom carrot symbol, colon in the middle and the word stet circled above" ng-style="questions[8].style" ng-click="checkAns(questions[8].id,8)" src="assets/images/colon.svg">
-			    the development of a course outline, a syllabus, a schedule, lecture notes, assessments, visual presentation aids, and other support materials.
-			    <img id="{{questions[6].id}}" alt="a line going from the end of the  first paragraph to the beginning of the second paragraph." ng-style="questions[6].style" ng-click="checkAns(questions[6].id,6)" src="assets/images/closeParagraph.svg">
+				Developing a semester-length course for a traditional classroom environment is a very different proposition from developing a self-paced, <img id="{{questions[5].id}}"  alt="The word web based with carrot symbol below and two lines above it" ng-style="questions[5].style" ng-click="checkAns(questions[5].id,5)" src="assets/images/dash.svg">
+				curriculum of interactive learning object for workforce training. While the overarching instructional strategies and models may be the same, the tactics that are used to act on those strategies vary widely. <img id="{{questions[4].id}}" alt="The word for with three lines under the first letter" ng-style="questions[4].style" ng-click="checkAns(questions[4].id,4)" src="assets/images/capital.svg"> example, a traditional,
+			    <img id="{{questions[1].id}}" alt="a line going over the word academic and under classroom-based "ng-style="questions[1].style" ng-click="checkAns(questions[1].id,1)" src="assets/images/transposeWords.svg">course may require extensive preparation that <img id="{{questions[8].id}}" alt="The word includes with top/bottom carrot symbol, colon in the middle and the word stet circled above" ng-style="questions[8].style" ng-click="checkAns(questions[8].id,8)" src="assets/images/colon.svg">the development of a course outline, a syllabus, a schedule, lecture notes, assessments, visual presentation aids, and other support materials.<img id="{{questions[6].id}}" alt="a line going from the end of the  first paragraph to the beginning of the second paragraph." ng-style="questions[6].style" ng-click="checkAns(questions[6].id,6)" src="assets/images/closeParagraph.svg">
 			</p>
-
 			<p class="indent">
-				However, a traditional classroom course 
-				<img id="proofRead-insertSpace" alt="A line drawn down the middle of the words does and not with a hashtag symbol at the top" ng-style="questions[10].style" ng-click="checkAns(questions[10].id,10)" src="assets/images/insertSpace.svg"> 
-				require the <span id="{{questions[3].id}}" ng-style="questions[3].style" ng-click="checkAns(questions[3].id,3)" style=" text-decoration: line-through;">very</span> precise scripting of every word of instruction to be delivered to students. Because the instruction within a self-paced learning object is computer facilitated, with no external human 
-				<img id="{{questions[0].id}}" alt="The word interventin with the carrot symbol at the bottom and the letter o at the top" ng-style="questions[0].style" ng-click="checkAns(questions[0].id,0)" src="assets/images/insert.svg"> there is an extra burden on the development 
-				<img id="{{questions[7].id}}" alt="A wavy line drawn over the word taem" ng-style="questions[7].style" ng-click="checkAns(questions[7].id,7)" src="assets/images/transposeLetters.svg"> to precisely capture the subject matter expertise of the academic authority. In this self-paced, technologically-mediated construct, the computer functions in an 
-				<span id="{{questions[9].id}}" ng-style="questions[9].style" ng-click="checkAns(questions[9].id,9)"> <u>in</u> <u>loco</u> <u>professor</u> </span>capacity for the student.
+				However, a traditional classroom course
+				<img id="proofRead-insertSpace" alt="A line drawn down the middle of the words does and not with a hashtag symbol at the top" ng-style="questions[10].style" ng-click="checkAns(questions[10].id,10)" src="assets/images/insertSpace.svg">
+				require the <span id="{{questions[3].id}}" ng-style="questions[3].style" ng-click="checkAns(questions[3].id,3)" style=" text-decoration: line-through;">very</span> precise scripting of every word of instruction to be delivered to students. Because the instruction within a self-paced learning object is computer facilitated, with no external human
+				<img id="{{questions[0].id}}" alt="The word interventin with the carrot symbol at the bottom and the letter o at the top" ng-style="questions[0].style" ng-click="checkAns(questions[0].id,0)" src="assets/images/insert.svg"> there is an extra burden on the development <img id="{{questions[7].id}}" alt="A wavy line drawn over the word taem" ng-style="questions[7].style" ng-click="checkAns(questions[7].id,7)" src="assets/images/transposeLetters.svg"> to precisely capture the subject matter expertise of the academic authority. In this self-paced, technologically-mediated construct, the computer functions in an <span id="{{questions[9].id}}" ng-style="questions[9].style" ng-click="checkAns(questions[9].id,9)"> <u>in</u> <u>loco</u> <u>professor</u> </span>capacity for the student.
 			</p>
 
+			<div id="instructionModal" ng-click="closeModal('modal')" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content" ng-click="closeModal('modal-content')">
+					<a href="#" class="close">x</a>
+					<p style="line-height: 2em">
+						The purpose of this widget is to gauge your knowledge of proofreading a document.
+						You will be asked a series of questions that will ask you to select the appropriate
+						symbol that best matches the description given. To answer the questions click on
+						words that are marked up within the document. See image below for example.<br>
+						<img style="margin: 20px auto; display: block;box-shadow: 1px 1px 1px 1px #171717;" src="assets/images/insert.svg">
+					</p>
+				</div>
+			</div>
 			<div id="questionBox">
+				<div class="tooltip">
+					<a href="#" ng-click="displayModal()">Instructions</a>
+<!-- 					<span class="tooltiptext">Instructions</span>
+ -->				</div>
 				<p>{{index+1}}. {{currentQuestion}} </p>
-				
 				<hr ng-show="isCorrect" id="wrongAns-border">
 				<p ng-show="isCorrect" id="wrongAns">{{ans.wrongStmnt}}</p>
-				
 				<hr ng-show="nextQuestion" id="correctAns-border">
 				<p ng-show="nextQuestion" id="correctAns">	Correct.</p>
-
 				<button popup-nav
 				 ng-click= "switchQuestion()"
 				 ng-show="showBtn"
@@ -70,13 +71,10 @@
 				>NEXT</button>
 			</div>
 		</div>
-
 		<div class="score_content" ng-show="finished">
-
 			<p id="final_score">
 				Your final score is <br> <span>{{ans.correct}} </span><br> out of 10.
 			</p>
-		
 		</div>
-		
 	</body>
+</html>
