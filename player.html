@@ -37,34 +37,33 @@
 			<p class="indent">
 				However, a traditional classroom course
 				<img id="proofRead-insertSpace" alt="A line drawn down the middle of the words does and not with a hashtag symbol at the top" ng-style="questions[10].style" ng-click="checkAns(questions[10].id,10)" src="assets/images/insertSpace.svg">
-				require the <span id="{{questions[3].id}}" ng-style="questions[3].style" ng-click="checkAns(questions[3].id,3)" style=" text-decoration: line-through;">very</span> precise scripting of every word of instruction to be delivered to students. Because the instruction within a self-paced learning object is computer facilitated, with no external human
-				<img id="{{questions[0].id}}" alt="The word interventin with the carrot symbol at the bottom and the letter o at the top" ng-style="questions[0].style" ng-click="checkAns(questions[0].id,0)" src="assets/images/insert.svg"> there is an extra burden on the development <img id="{{questions[7].id}}" alt="A wavy line drawn over the word taem" ng-style="questions[7].style" ng-click="checkAns(questions[7].id,7)" src="assets/images/transposeLetters.svg"> to precisely capture the subject matter expertise of the academic authority. In this self-paced, technologically-mediated construct, the computer functions in an <span id="{{questions[9].id}}" ng-style="questions[9].style" ng-click="checkAns(questions[9].id,9)"> <u>in</u> <u>loco</u> <u>professor</u> </span>capacity for the student.
+				require the <img alt="A line drawn over the word very" src="assets/images/delete.svg" id="{{questions[3].id}}" ng-style="questions[3].style" ng-click="checkAns(questions[3].id,3)" > precise scripting of every word of instruction to be delivered to students. Because the instruction within a self-paced learning object is computer facilitated, with no external human
+				<img id="{{questions[0].id}}" alt="The word interventin with the carrot symbol at the bottom and the letter o at the top" ng-style="questions[0].style" ng-click="checkAns(questions[0].id,0)" src="assets/images/insert.svg"> there is an extra burden on the development <img id="{{questions[7].id}}" alt="A wavy line drawn over the word taem" ng-style="questions[7].style" ng-click="checkAns(questions[7].id,7)" src="assets/images/transposeLetters.svg"> to precisely capture the subject matter expertise of the academic authority. In this self-paced, technologically-mediated construct, the computer functions in an <img src="assets/images/italics.svg" id="{{questions[9].id}}" ng-style="questions[9].style" ng-click="checkAns(questions[9].id,9)"> capacity for the student.
 			</p>
 
 			<div id="instructionModal" ng-click="closeModal('modal')" class="modal">
-				<!-- Modal content -->
 				<div class="modal-content" ng-click="closeModal('modal-content')">
 					<a href="#" class="close">x</a>
-					<p style="line-height: 2em">
+					<p>
 						The purpose of this widget is to gauge your knowledge of proofreading a document.
 						You will be asked a series of questions that will ask you to select the appropriate
 						symbol that best matches the description given. To answer the questions click on
 						words that are marked up within the document. See image below for example.<br>
-						<img style="margin: 20px auto; display: block;box-shadow: 1px 1px 1px 1px #171717;" src="assets/images/insert.svg">
+						<img src="assets/images/insert.svg"><br>
+						<b>NOTE: When you hover over certain words within the document they will look similar to the image above. These are the ones that you are able to click on to answer the question.</b>
 					</p>
 				</div>
 			</div>
 			<div id="questionBox">
 				<div class="tooltip">
 					<a href="#" ng-click="displayModal()">Instructions</a>
-<!-- 					<span class="tooltiptext">Instructions</span>
- -->				</div>
+			</div>
 				<p>{{index+1}}. {{currentQuestion}} </p>
 				<hr ng-show="isCorrect" id="wrongAns-border">
 				<p ng-show="isCorrect" id="wrongAns">{{ans.wrongStmnt}}</p>
 				<hr ng-show="nextQuestion" id="correctAns-border">
 				<p ng-show="nextQuestion" id="correctAns">	Correct.</p>
-				<button popup-nav
+				<button id="nextBtn"popup-nav
 				 ng-click= "switchQuestion()"
 				 ng-show="showBtn"
 				 value="Next"
@@ -73,8 +72,10 @@
 		</div>
 		<div class="score_content" ng-show="finished">
 			<p id="final_score">
-				Your final score is <br> <span>{{ans.correct}} </span><br> out of 10.
+				Your final score is <br> <span>{{ans.correct}} </span><br> out of 10.<br>
 			</p>
+			<button ng-click="viewScores()" id="submitBtn">Submit</button>
 		</div>
+
 	</body>
 </html>

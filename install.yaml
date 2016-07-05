@@ -23,7 +23,7 @@ meta_data:
     - Customizable
     - Scorable
   supported_data:
-    - Multiple Choice
+    - Question Answer
   about: >
     This is a simple widget that tests users on their knowledge
     on proof-reading symbols.
@@ -31,5 +31,5 @@ meta_data:
   # The text displayed on the widget catalog page.
   excerpt: >
     A Widget that tests users on their knowledge
-    on proof-reading symbols by asking a series of 
+    on proof-reading symbols by asking a series of
     questions.
