@@ -1,13 +1,14 @@
 proofread = angular.module 'proofread', ['ngSanitize']
 
-proofread.controller "proofReadCtrl", ($scope) ->
+proofread.controller "proofReadCtrl", ['$scope', ($scope) ->
 	$scope.nextQuestion = false
 	$scope.isCorrect = false
 	$scope.finished = false
 	$scope.index = 0
+	$scope.images = []
 	$scope.showBtn = false
 	$scope.el = document.getElementsByClassName("modal")
-
+	_qset = null
 	$scope.ans =
 		correct: 0
 		wrong: 0
@@ -21,7 +22,6 @@ proofread.controller "proofReadCtrl", ($scope) ->
 
 	$scope.questions =
 		[
-
 			{
 				q: "Click on the mark for inserting a letter."
 				id: "proofRead-insertLetter"
@@ -77,9 +77,18 @@ proofread.controller "proofReadCtrl", ($scope) ->
 		]
 
 	$scope.currentQuestion = $scope.questions[$scope.index].q
+	$scope.start = (instance, qset, version) ->
+		_qset = qset
+		count = 1
+		for item in _qset.items
+			console.log(count + " " + item.questions[0].text)
+			count++
+			# for answer in item.answers
+			# 	console.log(item.answers[0].options.asset.id)
+			# 	$scope.images.push Materia.Engine.getImageAssetUrl answer.options.asset.id
+
 	$scope.displayModal = ->
 		$scope.el[0].style.display = 'block'
-		console.log($scope.el[0].style)
 
 	$scope.closeModal = (className)->
 		if className == 'modal' or className == 'close'
@@ -110,12 +119,16 @@ proofread.controller "proofReadCtrl", ($scope) ->
 			$scope.finished = true
 
 	$scope.checkAns = (id, indx) ->
+		_id = _qset.items[$scope.index].id
+		_value = _qset.items[$scope.index].answers[0].value
+		console.log(_id, _value)
 		if id == $scope.questions[$scope.index].id and $scope.ans.wrong < 2
 			$scope.questions[indx].style = $scope.ans.correctStyle
 			$scope.nextQuestion = true
 			$scope.isCorrect = false
 			$scope.showBtn = true
 			calculateScore()
+			# Materia.Score.submitQuestionForScoring $scope.questions[$scope.index].id, id
 		else
 			$scope.isCorrect = true
 			$scope.ans.wrong+=1
@@ -123,3 +136,8 @@ proofread.controller "proofReadCtrl", ($scope) ->
 				$scope.questions[$scope.index].style = $scope.ans.correctStyle
 				$scope.ans.wrongStmnt = "Incorrect. The correct answer is highlighted."
 				$scope.showBtn = true
+
+	$scope.viewScores = ->
+		Materia.Engine.end true
+	Materia.Engine.start($scope)
+]
