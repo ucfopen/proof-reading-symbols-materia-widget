@@ -128,7 +128,7 @@ proofread.controller "proofReadCtrl", ['$scope', ($scope) ->
 			$scope.isCorrect = false
 			$scope.showBtn = true
 			calculateScore()
-			# Materia.Score.submitQuestionForScoring $scope.questions[$scope.index].id, id
+			Materia.Score.submitQuestionForScoring $scope.questions[$scope.index].id, id
 		else
 			$scope.isCorrect = true
 			$scope.ans.wrong+=1
