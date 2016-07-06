@@ -23,8 +23,6 @@
 
 		<!-- MAIN PLAYER SCRIPT -->
 		<script src="player.js"></script>
-
-		<!-- BE FINDER SCRIPT -->
 	</head>
 	<body ng-app="proofread" ng-click="" ng-controller="proofReadCtrl">
 		<div class="content" ng-hide="finished">
@@ -40,7 +38,6 @@
 				require the <img alt="A line drawn over the word very" src="assets/images/delete.svg" id="{{questions[3].id}}" ng-style="questions[3].style" ng-click="checkAns(questions[3].id,3)" > precise scripting of every word of instruction to be delivered to students. Because the instruction within a self-paced learning object is computer facilitated, with no external human
 				<img id="{{questions[0].id}}" alt="The word interventin with the carrot symbol at the bottom and the letter o at the top" ng-style="questions[0].style" ng-click="checkAns(questions[0].id,0)" src="assets/images/insert.svg"> there is an extra burden on the development <img id="{{questions[7].id}}" alt="A wavy line drawn over the word taem" ng-style="questions[7].style" ng-click="checkAns(questions[7].id,7)" src="assets/images/transposeLetters.svg"> to precisely capture the subject matter expertise of the academic authority. In this self-paced, technologically-mediated construct, the computer functions in an <img src="assets/images/italics.svg" id="{{questions[9].id}}" ng-style="questions[9].style" ng-click="checkAns(questions[9].id,9)"> capacity for the student.
 			</p>
-
 			<div id="instructionModal" ng-click="closeModal('modal')" class="modal">
 				<div class="modal-content" ng-click="closeModal('modal-content')">
 					<a href="#" class="close">x</a>
@@ -57,7 +54,7 @@
 			<div id="questionBox">
 				<div class="tooltip">
 					<a href="#" ng-click="displayModal()">Instructions</a>
-			</div>
+				</div>
 				<p>{{index+1}}. {{currentQuestion}} </p>
 				<hr ng-show="isCorrect" id="wrongAns-border">
 				<p ng-show="isCorrect" id="wrongAns">{{ans.wrongStmnt}}</p>
@@ -76,6 +73,5 @@
 			</p>
 			<button ng-click="viewScores()" id="submitBtn">Submit</button>
 		</div>
-
 	</body>
 </html>
