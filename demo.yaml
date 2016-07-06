@@ -15,13 +15,9 @@ qset:
         answers:
           -
             value: 100
-            text: 1
+            text: Intervention
         options:
-          description: >
-            American colonists rejected the
-            legitimacy of the Parliament of Great
-            Britain to govern them without
-            representation.
+          description:
       -
         materiaType: question
         id: 2
@@ -32,17 +28,9 @@ qset:
         answers:
           -
             value: 100
-            text: 2
+            text: Academic Classroom-based
         options:
-          description: >
-            Americans declared war in 1812 for a number
-            of reasons, including a desire for expansion
-            into the Northwest Territory, trade restrictions
-            because of Britain's ongoing war with France,
-            impressment of American merchant sailors
-            into the Royal Navy, British support of
-            American Indian tribes against American
-            expansion, and the humiliation of American honour.
+          description:
       -
         materiaType: question
         id: 3
@@ -53,12 +41,9 @@ qset:
         answers:
           -
             value: 100
-            text: 3
+            text: Apples and Oranges
         options:
-          description: >
-            An armed conflict between the United
-            States and Mexico in the wake of the
-            U.S. annexation of Texas.
+          description:
       -
         materiaType: question
         id: 4
@@ -69,13 +54,9 @@ qset:
         answers:
           -
             value: 100
-            text: 4
+            text: Very
         options:
-          description: >
-            11 Southern slave states declared their
-            secession from the United States and
-            formed the Confederate States of
-            America.
+          description:
       -
         materiaType: question
         id: 5
@@ -86,11 +67,9 @@ qset:
         answers:
           -
             value: 100
-            text: 5
+            text: For
         options:
-          description: >
-            Includes the Charge of the Rough Riders,
-            at San Juan Hill.
+          description:
       -
         materiaType: question
         id: 6
@@ -101,11 +80,9 @@ qset:
         answers:
           -
             value: 100
-            text: 6
+            text: Web based
         options:
-          description: >
-            More than 9 million combatants were
-            killed in this conflict.
+          description:
       -
         materiaType: question
         id: 7
@@ -116,26 +93,22 @@ qset:
         answers:
           -
             value: 100
-            text: 7
+            text: End of first paragraph and beginning of second paragraph
         options:
-          description: >
-            Included two opposing military
-            alliances, the Allies and the Axis.
+          description:
       -
         materiaType: question
         id: 8
         type: QA
         questions:
           -
-            text: Click on the makr for transposing letters in a word
+            text: Click on the mark for transposing letters in a word
         answers:
           -
             value: 100
-            text: 8
+            text: Team
         options:
-          description: >
-            This war was the result of the physical
-            division of Korea.
+          description:
       -
         materiaType: question
         id: 9
@@ -146,15 +119,9 @@ qset:
         answers:
           -
             value: 100
-            text: 9
+            text: Includes
         options:
-          description: >
-            This war followed the First Indochina
-            War and was fought between North
-            Vietnam, supported by its communist
-            allies, and the government of South
-            Vietnam, supported by the U.S. and other
-            anti-communist nations.
+          description:
       -
         materiaType: question
         id: 10
@@ -165,14 +132,19 @@ qset:
         answers:
           -
             value: 100
-            text: 10
+            text: In loco professor
         options:
-          description: >
-            This war followed the First Indochina
-            War and was fought between North
-            Vietnam, supported by its communist
-            allies, and the government of South
-            Vietnam, supported by the U.S. and other
-            anti-communist nations.
-    options:
-      penalty: 10
+          description:
+      -
+        materiaType: question
+        id: 10
+        type: QA
+        questions:
+          -
+            text: None
+        answers:
+          -
+            value: 0
+            text: Does Not
+        options:
+          description:
