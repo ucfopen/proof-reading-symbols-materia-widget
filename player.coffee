@@ -79,13 +79,6 @@ proofread.controller "proofReadCtrl", ['$scope', ($scope) ->
 	$scope.currentQuestion = $scope.questions[$scope.index].q
 	$scope.start = (instance, qset, version) ->
 		_qset = qset
-		count = 1
-		for item in _qset.items
-			console.log(count + " " + item.questions[0].text)
-			count++
-			# for answer in item.answers
-			# 	console.log(item.answers[0].options.asset.id)
-			# 	$scope.images.push Materia.Engine.getImageAssetUrl answer.options.asset.id
 
 	$scope.displayModal = ->
 		$scope.el[0].style.display = 'block'
@@ -121,14 +114,16 @@ proofread.controller "proofReadCtrl", ['$scope', ($scope) ->
 	$scope.checkAns = (id, indx) ->
 		_id = _qset.items[$scope.index].id
 		_value = _qset.items[$scope.index].answers[0].value
-		console.log(_id, _value)
+		_ans = _qset.items[indx].answers[0].text
+
 		if id == $scope.questions[$scope.index].id and $scope.ans.wrong < 2
 			$scope.questions[indx].style = $scope.ans.correctStyle
 			$scope.nextQuestion = true
 			$scope.isCorrect = false
 			$scope.showBtn = true
 			calculateScore()
-			Materia.Score.submitQuestionForScoring $scope.questions[$scope.index].id, id
+			Materia.Score.submitQuestionForScoring _id, _ans
+
 		else
 			$scope.isCorrect = true
 			$scope.ans.wrong+=1
@@ -138,8 +133,7 @@ proofread.controller "proofReadCtrl", ['$scope', ($scope) ->
 				$scope.showBtn = true
 				_qset.items[$scope.index].answers[0].value = 0
 				_value = _qset.items[$scope.index].answers[0]
-				console.log(_ans)
-				# Materia.Score.submitQuestionForScoring _id, _ans
+				Materia.Score.submitQuestionForScoring _id, _ans
 
 	$scope.viewScores = ->
 		Materia.Engine.end true
