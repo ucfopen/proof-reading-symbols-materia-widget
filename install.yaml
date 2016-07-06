@@ -20,7 +20,6 @@ score:
   score_module: ProofReadingSymbols
 meta_data:
   features:
-    - Customizable
     - Scorable
   supported_data:
     - Question Answer
