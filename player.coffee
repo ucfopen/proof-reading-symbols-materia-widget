@@ -136,6 +136,10 @@ proofread.controller "proofReadCtrl", ['$scope', ($scope) ->
 				$scope.questions[$scope.index].style = $scope.ans.correctStyle
 				$scope.ans.wrongStmnt = "Incorrect. The correct answer is highlighted."
 				$scope.showBtn = true
+				_qset.items[$scope.index].answers[0].value = 0
+				_value = _qset.items[$scope.index].answers[0]
+				console.log(_ans)
+				# Materia.Score.submitQuestionForScoring _id, _ans
 
 	$scope.viewScores = ->
 		Materia.Engine.end true
