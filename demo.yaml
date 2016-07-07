@@ -115,7 +115,7 @@ qset:
         type: QA
         questions:
           -
-            text: Click on the mark for ignoring a mark and leaving the text as originall written
+            text: Click on the mark for ignoring a mark and leaving the text as originally written
         answers:
           -
             value: 100
@@ -137,7 +137,7 @@ qset:
           description:
       -
         materiaType: question
-        id: 10
+        id: 11
         type: QA
         questions:
           -
