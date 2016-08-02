@@ -5,7 +5,7 @@ general:
   height: 780
   width: 1050
   in_catalog: Yes
-  is_editable: Yes
+  is_editable: No
   is_playable: Yes
   is_qset_encrypted: Yes
   is_answer_encrypted: Yes
@@ -22,7 +22,7 @@ meta_data:
   features:
     - Scorable
   supported_data:
-    - Question Answer
+    - Question/Answer
   about: >
         This widget is used to help students recognize and understand symbols used in proof reading.
 
