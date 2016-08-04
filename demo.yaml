@@ -16,8 +16,7 @@ qset:
           -
             value: 100
             text: Intervention
-        options:
-          description:
+
       -
         materiaType: question
         id: 2
@@ -29,8 +28,7 @@ qset:
           -
             value: 100
             text: Academic Classroom-based
-        options:
-          description:
+
       -
         materiaType: question
         id: 3
@@ -42,8 +40,7 @@ qset:
           -
             value: 100
             text: Apples and Oranges
-        options:
-          description:
+
       -
         materiaType: question
         id: 4
@@ -55,8 +52,7 @@ qset:
           -
             value: 100
             text: Very
-        options:
-          description:
+
       -
         materiaType: question
         id: 5
@@ -68,8 +64,7 @@ qset:
           -
             value: 100
             text: For
-        options:
-          description:
+
       -
         materiaType: question
         id: 6
@@ -81,8 +76,7 @@ qset:
           -
             value: 100
             text: Web based
-        options:
-          description:
+
       -
         materiaType: question
         id: 7
@@ -94,8 +88,7 @@ qset:
           -
             value: 100
             text: End of first paragraph and beginning of second paragraph
-        options:
-          description:
+
       -
         materiaType: question
         id: 8
@@ -107,8 +100,7 @@ qset:
           -
             value: 100
             text: Team
-        options:
-          description:
+
       -
         materiaType: question
         id: 9
@@ -120,8 +112,7 @@ qset:
           -
             value: 100
             text: Includes
-        options:
-          description:
+
       -
         materiaType: question
         id: 10
@@ -133,8 +124,7 @@ qset:
           -
             value: 100
             text: In loco professor
-        options:
-          description:
+
       -
         materiaType: question
         id: 11
@@ -146,5 +136,3 @@ qset:
           -
             value: 0
             text: Does Not
-        options:
-          description:
