@@ -56,7 +56,7 @@ ProofRead.controller 'proofReadCtrl', ['$scope', ($scope) ->
 				q: "Click on the mark for adding italics font formatting."
 				ansText: 'In loco professor'
 				id: 10
-			}
+			},
 			{
 				q:''
 				ansText: 'Does not'
