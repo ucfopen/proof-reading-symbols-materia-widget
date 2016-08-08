@@ -70,7 +70,7 @@ proofread.controller "proofReadCtrl", ['$scope', ($scope) ->
 			{
 				q: "Click on the mark for adding italics font formatting."
 				id: "proofRead-italics"
-			}
+			},
 			{
 				id: "proofRead-insertSpace"
 			}
