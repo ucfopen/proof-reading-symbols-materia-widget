@@ -124,15 +124,3 @@ qset:
           -
             value: 100
             text: In loco professor
-
-      -
-        materiaType: question
-        id: 11
-        type: QA
-        questions:
-          -
-            text: None
-        answers:
-          -
-            value: 0
-            text: Does Not
