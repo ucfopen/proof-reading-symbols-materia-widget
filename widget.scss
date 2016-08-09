@@ -79,13 +79,19 @@ body
         padding: 0px 40px;
     }
 
-    img, #proofRead-delete, #proofRead-italics
+    img
     {
         cursor: pointer;
         box-shadow: 1px 1px 1px 1px #D2CFCF;
     }
 
-    img:hover, #proofRead-delete:hover, #proofRead-italics:hover
+    #proofRead-insertSpace
+    {
+        cursor: default;
+        box-shadow: none;
+    }
+
+    img:hover
     {
         cursor: pointer;
         -moz-box-shadow: 0 0 10px #ccc;
@@ -150,8 +156,8 @@ body
     #proofRead-insertSpace
     {
         vertical-align: top;
-        margin-right: 2px;
-        margin-left: 2px;
+        margin-right: -4px;
+        margin-left: -4px;
     }
 
     #proofRead-transposeLetters
