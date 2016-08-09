@@ -70,9 +70,6 @@ proofread.controller "proofReadCtrl", ['$scope', ($scope) ->
 			{
 				q: "Click on the mark for adding italics font formatting."
 				id: "proofRead-italics"
-			},
-			{
-				id: "proofRead-insertSpace"
 			}
 		]
 
@@ -98,7 +95,7 @@ proofread.controller "proofReadCtrl", ['$scope', ($scope) ->
 			question.style = {}
 
 	$scope.switchQuestion = ->
-		if $scope.index < $scope.questions.length - 2
+		if $scope.index < $scope.questions.length - 1
 			$scope.index++
 			$scope.counter++
 			$scope.nextQuestion = false
