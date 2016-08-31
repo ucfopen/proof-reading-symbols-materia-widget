@@ -1,0 +1,171 @@
+{
+  "name": "Proof Reading Symbols",
+  "qset": {
+    "version": "1",
+    "data": {
+      "name": "Proof Reading Symbols",
+      "items": [
+        {
+          "materiaType": "question",
+          "id": "1",
+          "type": "QA",
+          "questions": [
+            {
+              "text": "Click on the mark for inserting a letter"
+            }
+          ],
+          "answers": [
+            {
+              "value": "100",
+              "text": "Intervention"
+            }
+          ]
+        },
+        {
+          "materiaType": "question",
+          "id": "2",
+          "type": "QA",
+          "questions": [
+            {
+              "text": "Click on the mark for transposing a group of words"
+            }
+          ],
+          "answers": [
+            {
+              "value": "100",
+              "text": "Academic Classroom-based"
+            }
+          ]
+        },
+        {
+          "materiaType": "question",
+          "id": "3",
+          "type": "QA",
+          "questions": [
+            {
+              "text": "Click on the mark for adding bold formatting"
+            }
+          ],
+          "answers": [
+            {
+              "value": "100",
+              "text": "Apples and Oranges"
+            }
+          ]
+        },
+        {
+          "materiaType": "question",
+          "id": "4",
+          "type": "QA",
+          "questions": [
+            {
+              "text": "Click on the mark for deleting a word"
+            }
+          ],
+          "answers": [
+            {
+              "value": "100",
+              "text": "Very"
+            }
+          ]
+        },
+        {
+          "materiaType": "question",
+          "id": "5",
+          "type": "QA",
+          "questions": [
+            {
+              "text": "Click on the mark for capatilizing a letter"
+            }
+          ],
+          "answers": [
+            {
+              "value": "100",
+              "text": "For"
+            }
+          ]
+        },
+        {
+          "materiaType": "question",
+          "id": "6",
+          "type": "QA",
+          "questions": [
+            {
+              "text": "Click on the mark for adding a hyphen"
+            }
+          ],
+          "answers": [
+            {
+              "value": "100",
+              "text": "Web based"
+            }
+          ]
+        },
+        {
+          "materiaType": "question",
+          "id": "7",
+          "type": "QA",
+          "questions": [
+            {
+              "text": "Click on the mark for closing up two paragraphs"
+            }
+          ],
+          "answers": [
+            {
+              "value": "100",
+              "text": "End of first paragraph and beginning of second paragraph"
+            }
+          ]
+        },
+        {
+          "materiaType": "question",
+          "id": "8",
+          "type": "QA",
+          "questions": [
+            {
+              "text": "Click on the mark for transposing letters in a word"
+            }
+          ],
+          "answers": [
+            {
+              "value": "100",
+              "text": "Team"
+            }
+          ]
+        },
+        {
+          "materiaType": "question",
+          "id": "9",
+          "type": "QA",
+          "questions": [
+            {
+              "text": "Click on the mark for ignoring a mark and leaving the text as originally written"
+            }
+          ],
+          "answers": [
+            {
+              "value": "100",
+              "text": "Includes"
+            }
+          ]
+        },
+        {
+          "materiaType": "question",
+          "id": "10",
+          "type": "QA",
+          "questions": [
+            {
+              "text": "Click on the mark for ignoring a mark for adding italics font formatting"
+            }
+          ],
+          "answers": [
+            {
+              "value": "100",
+              "text": "In loco professor"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
