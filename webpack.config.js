@@ -1,4 +1,13 @@
 // load the reusable legacy webpack config from materia-widget-dev
-let webpackConfig = require('materia-widget-development-kit/webpack-widget').getLegacyWidgetBuildConfig()
+const widgetWebpack = require('materia-widget-development-kit/webpack-widget')
+const entries = widgetWebpack.getDefaultEntries()
+// no creator
+delete entries['creator.css']
+delete entries['creator.js']
 
-module.exports = webpackConfig
+// options for the build
+let options = {
+	entries: entries
+}
+
+module.exports = widgetWebpack.getLegacyWidgetBuildConfig(options)
