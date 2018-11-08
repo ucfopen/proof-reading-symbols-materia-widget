@@ -272,7 +272,6 @@ body
 
 .modal
 {
-    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -311,6 +310,12 @@ body
     float: right;
     font-size: 28px;
     font-weight: bold;
+}
+
+.highlighted-image
+{
+    box-shadow: 0 0 10px #383636;
+    border-bottom: 3px solid #00B033;
 }
 
 .close:hover,.close:focus
