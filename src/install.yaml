@@ -12,7 +12,7 @@ general:
   is_storage_enabled: No
   api_version: 2
 files:
-  creator: creator.html
+  creator: default
   player: player.html
   flash_version: 0
 score:
@@ -22,12 +22,10 @@ meta_data:
   features:
     - Scorable
   supported_data:
-    - Question/Answer
+    - Custom
   about: >
     Students must read a document and select the appropriate proof reading mark that
     best answers the question.
-
-  # The text displayed on the widget catalog page.
   excerpt: >
     Students must read a document and select the appropriate proof reading mark that
     best answers the question.
