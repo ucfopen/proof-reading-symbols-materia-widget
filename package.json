@@ -12,7 +12,7 @@
     "test-ci": "echo 'no tests implemented'"
   },
   "dependencies": {
-    "materia-widget-development-kit": "^2.0.0"
+    "materia-widget-development-kit": "^2.3.0"
   },
   "author": "University of Central Florida, Center for Distributed Learning",
   "description": "Materia widget to practice the application of proof reading symbols.",

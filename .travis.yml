@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - '6'
+cache:
+  yarn: true
+  directories:
+    - node_modules
+before_install:
+  - npm config set spin false
+  - npm install -g npm@^5
+script:
+  - yarn test-ci
+  - yarn build
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: "W8IOZrk6+HNLndavrdKgfDIHBbmeSlF8px2xY/BOxBDIHFYMm2VlVfS2F6NwT3Ifv52AMGKk0Oi9DUHVy8thbKlKlr6mMjeerZL2A683QNUVh1Tu7B0lIY+aq8h8tYCHtusoZV9yN5aqqhoRAAbPSECHtf+z9voYcBPMEEHKRuu8mi7UeoznKPCd6n4g+TiDMMGZsUu8zxno9ULVn3hE6SgE3dViFcw+oJ6bhnEHoRjsDOlpEByNDvszbKC+qBe8R9MW6EFotfMH9NSB3aC4P112+9YsvPJiXw0bKIS+LzyhUfEl7IUw9L687pUPd5iD3b9jwPhz5jJ6O6JiCHN/hIqODBT+kdwkXVuAy0BBRE2Nj+p7FbMI+Y+fFyxuhFA+wT9GjXpSIHbVKvq7S0reXcSK+IOlX4GNDjAZWDDVHfKtzrsxlZeGfxcscF8HhP/bgj1641V7RZUAKjXQ0Rd30VRd40TBlXCt9Um7hGWvi85U7PT55eXNFdU7qluR6tXs0lLnoQd2GPOWJyOItba1faguRnZj9qi8J2TxAEk4j1ftlgN3LhcRxK8isNin+nmceTUKELgIvm+HaZisJwgpMDdQtQWnM2Not2HY44n4Tay9eX2ldPvdCJT+QGAobtkkRI2B9EquwIiaC4dobkd9yTxx3TJgHa2gx9objIgR4Ek="
+  file:
+    - build/_output/proof-reading-symbols.wigt
+    - build/_output/proof-reading-symbols-build-info.yml
+  on:
+    tags: true
+    repo: ucfopen/proof-reading-symbols-materia-widget
+notifications:
+  email: false
+  slack:
+    secure: "QE9ve6DbZIFFJ4tDa2APgo97MkVDqw3ie2RyIunUjRNy+QgZS1uZXAfR01NnxxeKTF7m904i4R32L7KyTNN1UhS1dU/QnOZe9Dah53mloYGoPOFYYoZ4zt/Uj2rB42uLZwnR0jKtw9o6ZMQznXxcdTmFbvg4Nt9eY1K7ZVbK7VcxiqpbzkJiCaAfai3CWdFYVcGL4DwFcIAoVSiZJh9pXfcSYjhCs0bmApZGmFBOfh/XxPw3V5lFrEAPD0PICQUtVAprhBtGdzymR47XcrhNMzaJl8FYgKB1h9ydGS26DGtaUcE424AcrGK5zLT7qI3S/uRP5yalabXgb5hJAmgWW0vOutkzYgpKFrlOKf1eZXEYcjFpPi0K1UbdH0cZORHeNEomB7CN4v9zZF4PqPRErLdiYGyITVG+dhjQmrTKGQCNf3rfByzOoE63/kvKc9QQ79zSOSO+txh6zAdwxG9bf/0duDdJ1A7UAvgAFprnfNAcKnAdZBrMJQ9Hug2TSK8RHW1ldYoEPV6A5EeX2lfckZ6uoZS4t7D3sS/zmAyCf3o1FHXrZLUvF2qOrhCszIUaCqc7kqGVG/aRuD1qIF3Y1gcB1jdk+TEIqk+6KxW6gcKf3VvNY2oII85ZDJSG24kNS+HeK8KZ+3wTgz3mv+E0K+Iw7zkmBq+nrv3H1nqV0JU="
