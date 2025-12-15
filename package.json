@@ -3,16 +3,18 @@
   "materia": {
     "cleanName": "proof-reading-symbols"
   },
-  "version": "1.1.1",
+  "version": "1.1.2",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build-dev": "webpack",
-    "build": "webpack -p",
+    "start": "mwdk-start",
+    "build": "mwdk-build-prod",
+    "build-dev": "mwdk-build-dev",
     "test": "echo 'no tests implemented'",
     "test-ci": "echo 'no tests implemented'"
   },
   "dependencies": {
-    "materia-widget-development-kit": "^2.3.0"
+    "materia-widget-development-kit": "3.0.4",
+    "randomcolor": "^0.6.2",
+    "reset-css": "^5.0.2"
   },
   "author": "University of Central Florida, Center for Distributed Learning",
   "description": "Materia widget to practice the application of proof reading symbols.",
