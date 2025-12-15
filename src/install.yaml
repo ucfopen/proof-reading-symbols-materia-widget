@@ -1,7 +1,6 @@
 ---
 general:
   name: Proof Reading Symbols
-  group: Materia
   height: 780
   width: 1050
   in_catalog: No
@@ -29,3 +28,5 @@ meta_data:
   excerpt: >
     Students must read a document and select the appropriate proof reading mark that
     best answers the question.
+  update_method: github
+  repo: ucfopen/proof-reading-symbols-materia-widget

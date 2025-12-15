@@ -1,13 +1,21 @@
-// load the reusable legacy webpack config from materia-widget-dev
+const path = require('path')
+const srcPath = path.join(process.cwd(), 'src')
 const widgetWebpack = require('materia-widget-development-kit/webpack-widget')
-const entries = widgetWebpack.getDefaultEntries()
-// no creator
-delete entries['creator.css']
-delete entries['creator.js']
 
-// options for the build
+const entries = widgetWebpack.getDefaultEntries()
+
+// using default creator
+delete entries['creator'];
+
+// not using coffeescript here
+entries['player'] = [
+	path.join(srcPath, 'player.html'),
+	path.join(srcPath, 'player.coffee'),
+	path.join(srcPath, 'player.scss')
+];
+
 let options = {
-	entries: entries
+	entries: entries,
 }
 
 module.exports = widgetWebpack.getLegacyWidgetBuildConfig(options)
